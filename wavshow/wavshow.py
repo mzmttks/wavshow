@@ -13,7 +13,7 @@ def plotspec(wav, fs):
   locs, labels = plt.xticks()
   # print(locs[1:-1], labels[1:-1])
   # plt.xticks(locs, time[locs])
-  plt.yticks(locs[1:-1], map(int, numpy.linspace(0, fs/2, spec.shape[0])))
+  # plt.yticks(locs[1:-1], map(int, numpy.linspace(0, fs/2, spec.shape[0])))
 
 def plotwav(wav, fs):
   plt.plot(wav, "k-")
