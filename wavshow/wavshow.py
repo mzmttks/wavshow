@@ -12,7 +12,7 @@ def plotspec(wav, fs):
   plt.imshow(10 * numpy.log10(spec), aspect="auto", interpolation="nearest", origin="lower")
 
   # Time axis
-  locs = map(int, numpy.linspace(0, len(time)-1, 10))
+  locs = list(map(int, numpy.linspace(0, len(time)-1, 10)))
   plt.xticks(locs, time[locs])
   plt.xlabel("Time [s]")
 
