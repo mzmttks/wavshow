@@ -8,12 +8,18 @@ import matplotlib.pyplot as plt
 
 
 def plotspec(wav, fs):
-  time, freq, spec = scipy.signal.spectrogram(wav, fs)
+  freq, time, spec = scipy.signal.spectrogram(wav, fs)
   plt.imshow(10 * numpy.log10(spec), aspect="auto", interpolation="nearest", origin="lower")
-  locs, labels = plt.xticks()
-  # print(locs[1:-1], labels[1:-1])
-  # plt.xticks(locs, time[locs])
-  # plt.yticks(locs[1:-1], map(int, numpy.linspace(0, fs/2, spec.shape[0])))
+
+  # Time axis
+  locs = map(int, numpy.linspace(0, len(time)-1, 10))
+  plt.xticks(locs, time[locs])
+  plt.xlabel("Time [s]")
+
+  # Frequency axis
+  locs = range(0, len(freq), 16)
+  plt.yticks(locs, map(int, freq[locs]))
+  plt.ylabel("Frequency [Hz]")
 
 def plotwav(wav, fs):
   plt.plot(wav, "k-")
@@ -25,6 +31,8 @@ def plotwav(wav, fs):
   plt.xlim(0, len(wav))
   plt.xlabel("Time [s]")
   plt.ylabel("Amplitude")
+
+  return plt.xticks()
 
 def plot_main(wavname):
   plt.figure()
