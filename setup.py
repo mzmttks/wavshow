@@ -6,5 +6,10 @@ setup(
   name='wavshow',
   version='0.1',
   license='MIT',
-  packages=find_packages()
+  packages=find_packages(),
+  entry_points = {
+    "console_scripts":{
+      "wavshow=wavshow:main"
+    }
+  }
 )

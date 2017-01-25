@@ -57,6 +57,9 @@ def plot_main(wavname):
     plt.subplot(2, 1, 2)
     plotspec(wav, fs)
 
-if __name__ == "__main__":
+def main():
   [plot_main(wavname) for wavname in sys.argv[1:]]
   plt.show()
+
+if __name__ == "__main__":
+  main()
