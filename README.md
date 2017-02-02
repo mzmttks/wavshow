@@ -1,9 +1,11 @@
 # What is wavshow?
-wavshow is a command line interface to visualize wavefiles.
+`wavshow` is a command line interface to visualize wavefiles.
+You can open multiple audio (wav, flac, ...) files and visualize its waveform and spectrogram.
+`wavshow` also supports saving the visualizations as image files.
 
 ![Sample](docs/sample.png "Sample")
 
-
+# Usage
 Once you installed this package, you can use
 ```
 wavshow  --help
