@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
   name='wavshow',
-  version='0.1',
+  version='0.2',
   license='MIT',
   author="mzmttks",
   author_email="ta.mizumoto@gmail.com",
