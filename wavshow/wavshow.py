@@ -87,7 +87,8 @@ def main():
         "-o", "--output_imgfile", default=None, help="The image file name to save."
     )
     parser.add_argument(
-        "--is_variable_ylim", action="store_true", default=False
+        "--is_variable_ylim", action="store_true", default=False, 
+        help="Adjusts ylim of waveform using the data"
     )
     args = parser.parse_args()
 
