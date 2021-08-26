@@ -23,7 +23,7 @@ def plotspec(wav, fs):
     plt.ylabel('Frequency [Hz]')
 
 
-def plotwav(wav, fs):
+def plotwav(wav, fs, is_variable_ylim=False):
     plt.plot(wav, 'k-')
   
     # Set x axis (Time)
@@ -34,11 +34,15 @@ def plotwav(wav, fs):
     plt.xlim(0, len(wav))
 
     # Set y axis (Amplitude)
-    plt.ylim(-1, 1)
+    if is_variable_ylim:
+        ylim = abs(wav).max() * 1.1
+    else:
+        ylim = 1
+    plt.ylim(-ylim, ylim)
     plt.ylabel('Amplitude')
 
 
-def plot_main(wavname):
+def plot_main(wavname, is_variable_ylim):
     print('Plot', wavname)
     plt.figure()
 
@@ -58,7 +62,7 @@ def plot_main(wavname):
     else:
         plt.subplot(2, 1, 1)
         plt.title(wavname)
-        plotwav(wav, fs)
+        plotwav(wav, fs, is_variable_ylim)
 
         plt.subplot(2, 1, 2)
         plotspec(wav, fs)
@@ -82,14 +86,14 @@ def main():
     parser.add_argument(
         "-o", "--output_imgfile", default=None, help="The image file name to save."
     )
+    parser.add_argument(
+        "--is_variable_ylim", action="store_true", default=False
+    )
     args = parser.parse_args()
 
 
     for index, wavname in enumerate(args.input):
-        if args.output_imgfile:
-            plot_main(wavname)
-        else:
-            plot_main(wavname)
+        plot_main(wavname, args.is_variable_ylim)
 
         if args.output_imgfile:
             if "%" in args.output_imgfile:
@@ -98,5 +102,7 @@ def main():
                 plt.savefig(args.output_imgfile)
 
     plt.show()
+
+
 if __name__ == '__main__':
     main()
