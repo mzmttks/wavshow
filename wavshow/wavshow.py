@@ -66,20 +66,19 @@ def plot_main(wavname):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="""
+    parser = argparse.ArgumentParser(usage="""
     Plot given wave files and spectrogram.
    
-   \b
-   Examples:
-     (1) Plot a wave file "sample.wav"
-         $ wavshow -i sample.wav
-     (2) Plot multiple wave files "sample1.wav", "sample2.wav"
-         $ wavshow -i sample1.wav -i sample2.wav
-     (3) Plot a wave file "sample.wav" and save it as "sample01.png"
-         $ wavshow -i sample.wav -o sample%02d.png
+    Examples:
+    (1) Plot a wave file "sample.wav"
+        $ wavshow sample.wav
+    (2) Plot multiple wave files "sample1.wav", "sample2.wav"
+        $ wavshow sample1.wav sample2.wav
+    (3) Plot a wave file "sample.wav" and save it as "sample01.png"
+        $ wavshow sample.wav -o sample%%02d.png
 """)
     parser.add_argument("input", nargs='*', help="Input audio file.")
-    parser.add_argument("--output_imgfile", default=None, help="The image file name to save.")
+    parser.add_argument("-i", "--output_imgfile", default=None, help="The image file name to save.")
     args = parser.parse_args()
 
 
