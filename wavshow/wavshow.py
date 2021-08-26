@@ -80,7 +80,7 @@ def main():
         "input", nargs='*', help="Input audio file."
     )
     parser.add_argument(
-        "-i", "--output_imgfile", default=None, help="The image file name to save."
+        "-o", "--output_imgfile", default=None, help="The image file name to save."
     )
     args = parser.parse_args()
 
