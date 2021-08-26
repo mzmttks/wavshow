@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import pathlib
 from setuptools import setup, find_packages
 
 setup(
@@ -10,9 +11,7 @@ setup(
   author_email="ta.mizumoto@gmail.com",
   url="https://github.com/mzmttks/wavshow",
   packages=find_packages(),
-  insatll_requires=[
-    "Click", "matplotlib", "numpy", "scipy"
-  ],
+  insatll_requires=pathlib.Path("requirements.txt").read_text().rstrip().split("\n"),
   entry_points = {
     "console_scripts":{
       "wavshow=wavshow:main"
