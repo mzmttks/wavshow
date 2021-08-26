@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-import sys
+#!/usr/bin/env python3
 
 import argparse
 import numpy
@@ -67,7 +66,7 @@ def plot_main(wavname):
 
 def main():
     parser = argparse.ArgumentParser(usage="""
-    Plot given wave files and spectrogram.
+    Plot audio data and spectrogram.
    
     Examples:
     (1) Plot a wave file "sample.wav"
@@ -77,8 +76,12 @@ def main():
     (3) Plot a wave file "sample.wav" and save it as "sample01.png"
         $ wavshow sample.wav -o sample%%02d.png
 """)
-    parser.add_argument("input", nargs='*', help="Input audio file.")
-    parser.add_argument("-i", "--output_imgfile", default=None, help="The image file name to save.")
+    parser.add_argument(
+        "input", nargs='*', help="Input audio file."
+    )
+    parser.add_argument(
+        "-i", "--output_imgfile", default=None, help="The image file name to save."
+    )
     args = parser.parse_args()
 
 
